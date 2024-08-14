@@ -6,6 +6,12 @@ from message import MESSAGE_TEXT
 
 
 def get_vacancies(params):
+    """
+    Функция для получения вакансий.
+
+    :param params: Параметры запроса
+    :return: список вакансий
+    """
     vacancy_list = []
     url = 'https://api.hh.ru/vacancies'
     while True:
@@ -19,6 +25,12 @@ def get_vacancies(params):
 
 
 def vacancy_ids(vacancy_list):
+    """
+    Функция для извлечения идентификаторов вакансий.
+
+    :param vacancy_list: Список вакансий
+    :return: список идентификаторов вакансий, исключая компании из черного списка
+    """
     vacancy_list_id = [vacancy['id'] for vacancy in vacancy_list]
     put_in_black_list(vacancy_list)
     ended_vacancy_list = list(set(vacancy_list_id) - set(get_black_list()))
@@ -26,6 +38,11 @@ def vacancy_ids(vacancy_list):
 
 
 def response_vacancies(list_vacancies):
+    """
+    Функция для отправки резюме с сопроводительным письмом на отобранные вакансии.
+
+    :param list_vacancies: Список идентификаторов вакансий
+    """
     success = 0
     for item in list_vacancies:
         r = requests.post(

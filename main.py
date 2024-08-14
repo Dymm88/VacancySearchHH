@@ -3,11 +3,21 @@ from vacancies import get_vacancies, vacancy_ids, response_vacancies
 
 
 def main():
+    """
+    Основная функция, которая вызывает функции для получения и обработки вакансий.
+    """
+    # Получаем вакансии в Санкт-Петербурге
     data_spb = get_vacancies(params_SPb)
+    # Извлекаем идентификаторы вакансий, исключая вакансии из черного списка
     list_vacancies = vacancy_ids(data_spb)
+    # Отправляем резюме на полученные вакансии
     response_vacancies(list_vacancies)
+    
+    # Получаем вакансии по всей России
     data_all = get_vacancies(params_All)
+    # Извлекаем идентификаторы вакансий, исключая вакансии из черного списка
     list_vacancies = vacancy_ids(data_all)
+    # Отправляем резюме на полученные вакансии
     response_vacancies(list_vacancies)
 
 

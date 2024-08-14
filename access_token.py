@@ -5,6 +5,9 @@ from config import (CLIENT_ID, CLIENT_SECRET, REDIRECT_URI,
 
 
 def get_code():
+    """
+    Функция для получения кода авторизации.
+    """
     auth_code = (f'https://hh.ru/oauth/authorize?'
                  f'response_type=code&client_id={CLIENT_ID}&'
                  f'redirect_uri={REDIRECT_URI}')
@@ -14,9 +17,12 @@ def get_code():
 
 
 def get_access_token(auth_code):
+    """
+    Функция для получения токена доступа.
+    """
     url = 'https://api.hh.ru/token'
     headers = {
-        'Usr-Agent': 'VacancyBot',
+        'User-Agent': 'VacancyBot',
         'Content-Type': 'application/x-www-form-urlencoded',
     }
     data = {
@@ -31,6 +37,9 @@ def get_access_token(auth_code):
 
 
 def refresh_token():
+    """
+    Функция для обновления токена доступа.
+    """
     url = 'https://api.hh.ru/token'
     headers = {
         'Authorization': f'Bearer {TOKEN}',
@@ -43,8 +52,8 @@ def refresh_token():
     }
     r = requests.post(url=url, headers=headers, data=data)
     print(r.json())
-    
-    
+
+
 if __name__ == '__main__':
     access_code = get_code()
     get_access_token(access_code)

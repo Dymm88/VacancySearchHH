@@ -1,4 +1,4 @@
-params_SPb = {
+params_SPb = {  # параметры для поиска вакансий в SPb
     'page': 0,
     'per_page': 100,
     'text': 'python -преподаватель -ментор',
@@ -8,7 +8,7 @@ params_SPb = {
     'archived': False,
 }
 
-params_All = {
+params_All = {  # параметры для поиска вакансий по РФ
     'page': 0,
     'per_page': 100,
     'text': 'python -преподаватель -ментор',
@@ -19,8 +19,7 @@ params_All = {
     "schedule": "remote",
 }
 
-
-companies = (
+companies = (  # список компаний, которые нужно добавить в blacklist
     'Aston',
     'яндекс Крауд',
     'Яндекс Крауд: Поддержка',

@@ -2,7 +2,7 @@ from params import params_SPb, params_All
 from vacancies import get_vacancies, vacancy_ids, response_vacancies
 
 
-def main():
+def main() -> None:
     """
     Основная функция, которая вызывает функции для получения и обработки вакансий.
     """

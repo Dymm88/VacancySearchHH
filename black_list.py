@@ -1,10 +1,11 @@
 import requests
+from requests import Response
 
 from config import HEADERS
 from params import companies
 
 
-def put_in_black_list(list_companies):
+def put_in_black_list(list_companies: list[dict[str |int | bool]]) -> list[Response]:
     """
     Функция для добавления компаний в черный список.
 
@@ -19,7 +20,7 @@ def put_in_black_list(list_companies):
     return black_list
 
 
-def get_black_list():
+def get_black_list() -> list[int]:
     """
     Функция для получения черного списка компаний.
 

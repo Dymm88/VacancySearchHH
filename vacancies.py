@@ -5,7 +5,7 @@ from config import HEADERS, RESUME_ID
 from message import MESSAGE_TEXT
 
 
-def get_vacancies(params):
+def get_vacancies(params: dict) -> list:
     """
     Функция для получения вакансий.
 
@@ -24,7 +24,7 @@ def get_vacancies(params):
     return vacancy_list
 
 
-def vacancy_ids(vacancy_list):
+def vacancy_ids(vacancy_list: list) -> list:
     """
     Функция для извлечения идентификаторов вакансий.
 
@@ -37,7 +37,7 @@ def vacancy_ids(vacancy_list):
     return ended_vacancy_list
 
 
-def response_vacancies(list_vacancies):
+def response_vacancies(list_vacancies:list) -> None:
     """
     Функция для отправки резюме с сопроводительным письмом на полученные вакансии.
 

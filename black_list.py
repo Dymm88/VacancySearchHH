@@ -4,7 +4,7 @@ from config import HEADERS
 from params import companies
 
 
-def put_in_black_list(vacancy_list):
+def put_in_black_list(vacancy_list:list) -> None:
     """
     Функция для добавления компаний в черный список.
 
@@ -16,7 +16,7 @@ def put_in_black_list(vacancy_list):
             requests.put(url=f'https://api.hh.ru/vacancies/blacklisted/{name['id']}', headers=HEADERS)
 
 
-def get_black_list():
+def get_black_list() -> list:
     """
     Функция для получения черного списка компаний.
 

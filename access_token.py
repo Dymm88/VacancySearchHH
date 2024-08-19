@@ -4,7 +4,7 @@ from config import (CLIENT_ID, CLIENT_SECRET, REDIRECT_URI,
                     TOKEN, REFRESH_TOKEN, HEADERS)
 
 
-def get_code():
+def get_code() -> str:
     """
     Функция для получения кода авторизации.
     """
@@ -16,7 +16,7 @@ def get_code():
     return code
 
 
-def get_access_token(auth_code):
+def get_access_token(auth_code) -> None:
     """
     Функция для получения токена доступа.
     """
@@ -36,7 +36,7 @@ def get_access_token(auth_code):
     print(r.json())
 
 
-def refresh_token():
+def refresh_token() -> None:
     """
     Функция для обновления токена доступа.
     """
@@ -54,7 +54,7 @@ def refresh_token():
     print(r.json())
     
     
-def check_token_and_application():
+def check_token_and_application() -> None:
     """
     Функция для проверки валидности токена и приложения.
     """

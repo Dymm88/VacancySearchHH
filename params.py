@@ -4,7 +4,7 @@ params_SPb = {  # параметры для поиска вакансий в SPb
     'text': 'python NOT преподаватель NOT ментор NOT наставник',
     'experience': 'noExperience',
     'area': 2,
-    'period': 2,
+    'period': 1,
     'archived': False,
 }
 
@@ -14,7 +14,7 @@ params_All = {  # параметры для поиска вакансий по �
     'text': 'python NOT преподаватель NOT ментор NOT наставник',
     'experience': 'noExperience',
     'area': 113,
-    'period': 2,
+    'period': 1,
     'archived': False,
     "schedule": "remote",
 }

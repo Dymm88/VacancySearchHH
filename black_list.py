@@ -1,34 +1,28 @@
 import requests
-from requests import Response
 
 from config import HEADERS
 from params import companies
 
 
-def put_in_black_list(list_companies: list[dict[str |int | bool]]) -> list[Response]:
+def put_in_black_list(vacancy_list):
     """
     Функция для добавления компаний в черный список.
 
-    :param list_companies: Список компаний
-    :return: список ответов на запросы на добавление в черный список
+    :param vacancy_list: Список компаний
+    :return: Объект генератора ответов на запросы на добавление в черный список
     """
-    black_list = []
-    for name in list_companies:
+    for name in vacancy_list:
         if name['employer']['name'] in companies:
-            r = requests.put(url=f'https://api.hh.ru/vacancies/blacklisted/{name['id']}', headers=HEADERS)
-            black_list.append(r)
-    return black_list
+            requests.put(url=f'https://api.hh.ru/vacancies/blacklisted/{name['id']}', headers=HEADERS)
 
 
-def get_black_list() -> list[int]:
+def get_black_list():
     """
     Функция для получения черного списка компаний.
 
-    :return: Список идентификаторов компаний в черном списке
+    :return: Объект генератора идентификаторов компаний в черном списке
     """
     url = 'https://api.hh.ru/vacancies/blacklisted'
-    black_list = []
     r = requests.get(url=url, headers=HEADERS)
-    for t in r.json()['items']:
-        black_list.append(t['id'])
-    return black_list
+    black_list = (t['id'] for t in r.json()['items'])
+    return list(black_list)

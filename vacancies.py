@@ -5,7 +5,7 @@ from config import HEADERS, RESUME_ID
 from message import MESSAGE_TEXT
 
 
-def get_vacancies(params: dict[str| int | bool]) -> list[dict[str | int | bool]]:
+def get_vacancies(params):
     """
     Функция для получения вакансий.
 
@@ -24,7 +24,7 @@ def get_vacancies(params: dict[str| int | bool]) -> list[dict[str | int | bool]]
     return vacancy_list
 
 
-def vacancy_ids(vacancy_list: list[dict[str | int | bool]]) -> list[int]:
+def vacancy_ids(vacancy_list):
     """
     Функция для извлечения идентификаторов вакансий.
 
@@ -37,7 +37,7 @@ def vacancy_ids(vacancy_list: list[dict[str | int | bool]]) -> list[int]:
     return ended_vacancy_list
 
 
-def response_vacancies(list_vacancies: list[int]) -> None:
+def response_vacancies(list_vacancies):
     """
     Функция для отправки резюме с сопроводительным письмом на полученные вакансии.
 
@@ -54,7 +54,9 @@ def response_vacancies(list_vacancies: list[int]) -> None:
                 success += 1
                 print(f'Резюме успешно отправлено на вакансию {item}')
             case 200:
-                print(f'Необходимо выполнение задания на вакансию {item}')
+                print(f'Необходимо выполнение задания для вакансии {item}')
+            case 400:
+                print(f'Лимит на количество отправленных резюме')
             case _:
-                print(f'Произошла ошибка при отправке на вакансию {item}: {r.status_code}')
+                print(f'Произошла ошибка при отправке резюме на вакансию {item}: {r.status_code}')
     print(f'Количество отправленных отзывов - {success}')

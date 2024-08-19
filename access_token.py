@@ -1,10 +1,10 @@
 import requests
 
 from config import (CLIENT_ID, CLIENT_SECRET, REDIRECT_URI,
-                    TOKEN, REFRESH_TOKEN)
+                    TOKEN, REFRESH_TOKEN, HEADERS)
 
 
-def get_code() -> str:
+def get_code():
     """
     Функция для получения кода авторизации.
     """
@@ -16,7 +16,7 @@ def get_code() -> str:
     return code
 
 
-def get_access_token(auth_code: str) -> None:
+def get_access_token(auth_code):
     """
     Функция для получения токена доступа.
     """
@@ -36,7 +36,7 @@ def get_access_token(auth_code: str) -> None:
     print(r.json())
 
 
-def refresh_token() -> None:
+def refresh_token():
     """
     Функция для обновления токена доступа.
     """
@@ -52,6 +52,18 @@ def refresh_token() -> None:
     }
     r = requests.post(url=url, headers=headers, data=data)
     print(r.json())
+    
+    
+def check_token_and_application():
+    """
+    Функция для проверки валидности токена и приложения.
+    """
+    url = 'https://api.hh.ru/me'
+    r = requests.get(url=url, headers=HEADERS)
+    if r.status_code == 200:
+        print('Токен и приложение валидны')
+    else:
+        print('Токен или приложение невалидно')
 
 
 if __name__ == '__main__':

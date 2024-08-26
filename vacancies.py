@@ -37,7 +37,7 @@ def vacancy_ids(vacancy_list: list) -> list:
     return ended_vacancy_list
 
 
-def response_vacancies(list_vacancies:list) -> None:
+def response_vacancies(list_vacancies: list) -> None:
     """
     Функция для отправки резюме с сопроводительным письмом на полученные вакансии.
 

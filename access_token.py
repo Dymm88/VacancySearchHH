@@ -52,8 +52,8 @@ def refresh_token() -> None:
     }
     r = requests.post(url=url, headers=headers, data=data)
     print(r.json())
-    
-    
+
+
 def check_token_and_application() -> None:
     """
     Функция для проверки валидности токена и приложения.
@@ -70,7 +70,7 @@ if __name__ == '__main__':
     # Функции для получения токена доступа.
     access_code = get_code()
     get_access_token(access_code)
-    
+
 if __name__ == '__main__':
     # Функция для обновления токена доступа.
     refresh_token()

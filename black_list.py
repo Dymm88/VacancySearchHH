@@ -4,7 +4,7 @@ from config import HEADERS
 from params import companies
 
 
-def put_in_black_list(vacancy_list:list) -> None:
+def put_in_black_list(vacancy_list: list) -> None:
     """
     Функция для добавления компаний в черный список.
 

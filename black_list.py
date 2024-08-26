@@ -9,7 +9,6 @@ def put_in_black_list(vacancy_list:list) -> None:
     Функция для добавления компаний в черный список.
 
     :param vacancy_list: Список компаний
-    :return: Объект генератора ответов на запросы на добавление в черный список
     """
     for name in vacancy_list:
         if name['employer']['name'] in companies:
@@ -20,7 +19,7 @@ def get_black_list() -> list:
     """
     Функция для получения черного списка компаний.
 
-    :return: Объект генератора идентификаторов компаний в черном списке
+    :return: Список идентификаторов компаний в черном списке
     """
     url = 'https://api.hh.ru/vacancies/blacklisted'
     r = requests.get(url=url, headers=HEADERS)

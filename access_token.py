@@ -67,6 +67,10 @@ def check_token_and_application() -> None:
 
 
 if __name__ == '__main__':
+    # Функции для получения токена доступа.
     access_code = get_code()
     get_access_token(access_code)
+    
+if __name__ == '__main__':
+    # Функция для обновления токена доступа.
     refresh_token()

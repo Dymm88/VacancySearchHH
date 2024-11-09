@@ -9,14 +9,14 @@ def main() -> None:
     """
     # Проверяем токен и приложение на валидность
     check_token_and_application()
-    
+
     # Получаем вакансии в Санкт-Петербурге
     data_spb = get_vacancies(params_SPb)
     # Извлекаем идентификаторы вакансий, исключая вакансии из черного списка
     list_vacancies = vacancy_ids(data_spb)
     # Отправляем резюме на полученные вакансии
     response_vacancies(list_vacancies)
-    
+
     # Получаем вакансии по всей России
     data_all = get_vacancies(params_All)
     # Извлекаем идентификаторы вакансий, исключая вакансии из черного списка
@@ -25,5 +25,5 @@ def main() -> None:
     response_vacancies(list_vacancies)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
